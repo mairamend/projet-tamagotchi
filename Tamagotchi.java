@@ -29,10 +29,25 @@ public class Tamagotchi{
             System.out.printf("%s : Merci !%n",this.nom);
         }
     }
-    public static void main(String[] args) {
-        Tamagotchi t = new Tamagotchi("Zal");
-        Tamagotchi t1 = new Tamagotchi("Quenn");
-        t.parler();
-        t1.parler();
+    public boolean ageLimite(){
+        return this.age == this.dureeDeVie;
     }
+    public boolean vivre(){
+        if (this.age == this.dureeDeVie)
+            return true;
+        if (this.energie <= 0 ){
+            System.out.printf("%s : je meurs !%n",this.nom);
+             return  false;
+        }else{
+            this.age += 1;
+            this.energie -= 1;
+            if(this.ageLimite())
+                System.out.printf("%s : c'est gagné pour moi%n",this.nom);
+            else
+                this.parler();
+            return  true;
+        }
+           
+    }
+
 }
