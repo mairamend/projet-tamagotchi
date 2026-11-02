@@ -18,6 +18,9 @@ public class Tamagotchi{
         String etat = this.energie > 5 ? "heureux" : "affamé";
         System.out.printf("%s : je suis %s%n",this.nom,etat);
     }
+    public String getNom() {
+    return this.nom;
+}
     public void manger(){
         
         if(this.energie >= this.maxEnergie){
